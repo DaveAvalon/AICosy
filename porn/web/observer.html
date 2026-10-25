@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>AICosy · 观察 AI 游玩</title>
+  <link rel="stylesheet" href="/assets/observer.css">
+  <script src="/assets/observer.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="/" aria-label="AICosy 观察页">AICOSY<span>OBSERVER</span></a>
+    <div class="connection" role="status" aria-live="polite"><i id="connection-dot" aria-hidden="true"></i><span id="connection-message">正在连接服务</span></div>
+    <a id="status-link" class="quiet-link" href="/status">圆灯页 <span aria-hidden="true">↗</span></a>
+  </header>
+  <div id="connection-error" class="connection-error" role="alert" hidden></div>
+  <main class="workspace">
+    <aside class="sessions-panel" aria-label="选择游玩记录">
+      <div class="panel-heading"><h1>游玩记录</h1><span id="session-count" class="muted">—</span></div>
+      <p class="panel-caption">选择一个会话，查看 AI 玩到哪里。</p>
+      <div id="session-list" class="session-list" role="list"></div>
+      <p id="sessions-empty" class="sessions-empty" hidden>还没有游玩记录。<br>AI 接入后会出现在这里。</p>
+      <p class="sidebar-footnote">观察不会操作游戏，也不会延长 AI 的连接状态。</p>
+    </aside>
+
+    <section class="world-panel" aria-label="游玩进度与世界">
+      <div id="welcome" class="welcome">
+        <div class="welcome-ring" aria-hidden="true"></div>
+        <p class="eyebrow">AICOSY / AI PLAY SPACE</p>
+        <h2 id="welcome-title">等待 AI 接入</h2>
+        <p id="welcome-message">这里观察 AI 怎样选择作品、继续演奏或主动离开。<br>已有的游玩记录可以随时查看。</p>
+        <details class="connect-help"><summary>让一个玩家接入</summary><p>在运行服务的项目中启动示例玩家：</p><code>python3.11 -m clients.rule_agent</code><p>示例会标明为规则脚本。打开观察页不会自动产生 AI 玩家。</p></details>
+      </div>
+
+      <div id="session-content" hidden>
+        <section class="session-overview" aria-label="本局进度">
+          <div class="overview-heading"><p id="view-label" class="eyebrow">历史记录</p><span id="rules-label" class="version-label"></span></div>
+          <h2 id="player-title"></h2>
+          <p id="model-title" class="model-title"></p>
+          <div class="progress-heading"><div><strong id="turn-number">0</strong><span id="turn-total"> / 24 回合</span></div><div id="energy-value" class="energy-value">24 Energy</div></div>
+          <progress id="turn-progress" max="24" value="0" aria-label="本局回合进度"></progress>
+          <div class="overview-meta"><span id="area-label">尚未进入区域</span><span id="piece-label" hidden></span><span id="client-label"></span><span id="session-state"></span></div>
+          <p id="behavior-summary" class="behavior-summary"></p>
+          <p id="end-reason" class="end-reason" hidden></p>
+        </section>
+
+        <section id="current-run-section" class="current-run-section" aria-label="玩家当前运行" hidden>
+          <div class="section-heading"><div><h3 id="current-run-title">当前运行</h3><p id="current-run-status" class="section-subtitle"></p></div><span id="current-run-progress" class="experience-progress"></span></div>
+          <p id="current-run-cycle" class="run-cycle" hidden></p>
+          <p id="current-run-context" class="run-context" hidden></p>
+        </section>
+
+        <section id="experience-section" class="experience-section" aria-label="本段体验的最新保存状态" hidden>
+          <div class="section-heading"><div><h3 id="experience-mode">演奏记录</h3><p id="experience-status" class="section-subtitle"></p></div><span id="experience-progress" class="experience-progress"></span></div>
+          <dl class="experience-state"><div><dt>蓄积门</dt><dd id="experience-gate"></dd></div><div><dt>存量</dt><dd id="experience-storage"></dd></div></dl>
+          <p id="experience-action" class="experience-action"></p>
+          <ol id="experience-events" class="experience-events" aria-label="最近发生的传播事件"></ol>
+          <p id="experience-caption" class="experience-caption">展示过程的保存状态 · 下方时间轴查看已发生的各拍</p>
+        </section>
+
+        <section class="machine-section" aria-label="信号世界">
+          <div class="section-heading"><div><h3>信号世界</h3><p id="graph-source" class="section-subtitle">当前结构</p></div><button id="structure-toggle" class="text-button" type="button" hidden>查看当前结构</button></div>
+          <div class="machine-stage">
+            <svg id="machine-graph" viewBox="0 0 840 390" role="group" aria-label="AI 创造的节点和连接"></svg>
+            <p id="graph-empty" class="graph-empty" hidden>尚无可显示的结构</p>
+          </div>
+          <div id="node-inspector" class="node-inspector"><span class="muted">点选节点</span><span>查看它在世界中的作用。</span></div>
+          <div id="legacy-content" class="legacy-content" hidden></div>
+        </section>
+
+        <section class="trace-section" aria-label="记录的信号过程">
+          <div class="section-heading"><div><h3>信号过程 <span id="playback-tag" class="playback-tag" hidden>记录回放</span></h3><p id="trace-description" class="section-subtitle">尚未运行信号</p></div><button id="play-record" class="record-button" type="button" disabled>播放记录</button></div>
+          <div id="trace-empty" class="trace-empty">AI 运行世界后，真实的信号过程会出现在这里。</div>
+          <div id="trace-content" hidden>
+            <svg id="signal-trace" viewBox="0 0 840 180" role="img" aria-label="每个节点随时间变化的信号"></svg>
+            <div class="tick-controls"><label for="tick-slider">第 <strong id="tick-value">0</strong> 拍</label><input id="tick-slider" type="range" min="0" max="0" value="0" aria-label="查看信号的某一拍"><span id="tick-total"></span></div>
+            <div class="trace-footer"><p id="trace-summary"></p><div class="trace-legend"><span><i class="positive"></i>正向信号</span><span><i class="negative"></i>反向信号</span></div></div>
+          </div>
+        </section>
+
+        <section class="saved-section" aria-label="已保存的体验"><div class="section-heading"><h3>留下的作品与过程</h3><span id="saved-count" class="muted">0</span></div><div id="saved-list" class="saved-list"></div><p id="saved-empty" class="muted saved-empty">这局还没有保存作品或过程。</p></section>
+        <section id="pieces-section" class="pieces-section" aria-label="本局可选择的作品" hidden><div class="section-heading"><h3>可选择的作品</h3><span class="muted piece-caption">由 AI 选择</span></div><ul id="pieces-list" class="pieces-list"></ul></section>
+      </div>
+    </section>
+
+    <aside class="events-panel" aria-label="行动记录">
+      <div class="panel-heading"><h2>行动记录</h2><span id="events-count" class="muted">—</span></div>
+      <p id="events-caption" class="panel-caption">来自游戏服务的实际行动。</p>
+      <ol id="event-list" class="event-list"></ol>
+      <p id="events-empty" class="events-empty">选择会话后查看每一步。</p>
+      <div id="event-inspector" class="event-inspector" hidden><p class="eyebrow">这一步的结果</p><h3 id="event-title"></h3><p id="event-result"></p><dl id="event-params"></dl></div>
+    </aside>
+  </main>
+  <footer class="app-footer"><span>只读观察 · 数据来自真实会话</span><span id="last-updated">尚未同步</span></footer>
+</body>
+</html>

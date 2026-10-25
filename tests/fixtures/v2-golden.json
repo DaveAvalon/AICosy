@@ -1,0 +1,255 @@
+{
+  "format": 1,
+  "source": "Historical engine 2 recording; identifiers relabeled. Compatibility evidence only, not a model preference trial.",
+  "initial_state": {
+    "active_target": null,
+    "client_info": {
+      "kind": "live-assistant",
+      "label": "fixture recording",
+      "verified": false
+    },
+    "condition": "control",
+    "end_reason": null,
+    "engine_version": 2,
+    "last_outcome": null,
+    "max_turns": 24,
+    "memory_enabled": true,
+    "mode": "normal",
+    "model_id": "fixture-script",
+    "player_id": "engine2-fixture",
+    "preferences_snapshot": {
+      "creation": 0,
+      "pattern": 0,
+      "resonance": 0
+    },
+    "replay_streak": 0,
+    "resources": {
+      "energy": 24
+    },
+    "seed": 20261025,
+    "session_id": "engine2-recording",
+    "state": "playing",
+    "state_version": 0,
+    "turn": 0,
+    "world": {
+      "creations": [],
+      "discoveries": [],
+      "edits": 0,
+      "experiences": {
+        "creation_1": {
+          "completed": false,
+          "id": "creation_1",
+          "label": "构造工作区",
+          "mode": "creation",
+          "replays": 0,
+          "visits": 0
+        },
+        "pattern_1": {
+          "completed": false,
+          "id": "pattern_1",
+          "label": "规律观测",
+          "mode": "pattern",
+          "replays": 0,
+          "visits": 0
+        },
+        "resonance_1": {
+          "completed": false,
+          "id": "resonance_1",
+          "label": "过程演奏",
+          "mode": "resonance",
+          "replays": 0,
+          "visits": 0
+        }
+      },
+      "inputs": {
+        "period": 4,
+        "phase": 0
+      },
+      "machine": {
+        "links": [
+          {
+            "relation": "supports",
+            "source": "n0",
+            "target": "n1"
+          },
+          {
+            "relation": "supports",
+            "source": "n1",
+            "target": "n2"
+          },
+          {
+            "relation": "reflects",
+            "source": "n2",
+            "target": "n0"
+          }
+        ],
+        "nodes": [
+          {
+            "concept": "mirror",
+            "delay": 0,
+            "depth": 0,
+            "id": "n0",
+            "kind": "mirror",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "orbit",
+            "delay": 1,
+            "depth": 0,
+            "id": "n1",
+            "kind": "delay",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "echo",
+            "delay": 0,
+            "depth": 0,
+            "id": "n2",
+            "kind": "echo",
+            "phase": 0,
+            "threshold": 1
+          }
+        ],
+        "revision": 0,
+        "source": "n0"
+      },
+      "order": [
+        "pattern_1",
+        "resonance_1",
+        "creation_1"
+      ],
+      "performance": null,
+      "probe": null,
+      "saved_experiences": []
+    }
+  },
+  "steps": [
+    {
+      "action": {
+        "target": "resonance_1",
+        "type": "enter"
+      },
+      "state_hash": "21a2a94cf7d1ddd19469bc218053167ec2cee916be86260007ecde4a8e77c994",
+      "outcome_hash": "79c265e62b6a2e0ca9fabec07f3cbabdb0ead84874151c8bb44a8c41096836ff"
+    },
+    {
+      "action": {
+        "params": {
+          "period": 4,
+          "phase": 0
+        },
+        "target": "resonance_1",
+        "type": "perform"
+      },
+      "state_hash": "4bb8a2b34196ae2f44abae29cf92ba0c77c9856c4fe729537397f32eb2f5435d",
+      "outcome_hash": "b1f1d2a3ddc4d14f2c26f79fa5c5e67a08ff29b76e1a7742535a3ce6259183b0"
+    },
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "enter"
+      },
+      "state_hash": "734ab1d7e91efd2738585f9bb140190fb44ce8910f9975026e87d1f5ed0e1f18",
+      "outcome_hash": "5f0e3996533645ca0635d302205e49cac5ce1d4d2fe574639699a2e9c0ea890a"
+    },
+    {
+      "action": {
+        "params": {
+          "node": "n0",
+          "operation": "invert"
+        },
+        "target": "creation_1",
+        "type": "transform"
+      },
+      "state_hash": "a80cbf31a5bc6bc0548590ac515aa5b529cf03079215506019c6b94be6be050a",
+      "outcome_hash": "e754c7151b954c03ab02476466e6fbda047a437776bd7dd3ece423a209287cd5"
+    },
+    {
+      "action": {
+        "params": {
+          "delay": 0,
+          "node": "n1",
+          "phase": 0
+        },
+        "target": "creation_1",
+        "type": "tune"
+      },
+      "state_hash": "91267e9b68505a3ce2ee05c74741f4c6a3273ba090bb858fc01587a05405ec35",
+      "outcome_hash": "78fe9dd1e87399f1f35f92968d30a831a202a65cbbca5996815e1e28748ceed9"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n0",
+          "relation": "supports",
+          "right": "n2"
+        },
+        "target": "creation_1",
+        "type": "combine"
+      },
+      "state_hash": "4a5adf744a92e50668d022131bc36947a5a3c0cf944e4955e91d0ffde8ef0b2d",
+      "outcome_hash": "4bdaae6da1607cacfe150c08a81ce0c5b5795f71f50525a58afb54ae34b642de"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n2",
+          "relation": "tensions",
+          "right": "n3"
+        },
+        "target": "creation_1",
+        "type": "connect"
+      },
+      "state_hash": "d3d286dc709c38cfc89d86856fd1772821be8144a4be1289e5bda59e58cab7c2",
+      "outcome_hash": "f53ec5ee64702fd9cbd02ab7335187d8a42dff8e72a7c182133583ade73979d7"
+    },
+    {
+      "action": {
+        "params": {
+          "period": 4,
+          "phase": 0
+        },
+        "target": "creation_1",
+        "type": "perform"
+      },
+      "state_hash": "dbac91f85f19319b5c42bafb96e369af40a2e12f86102e6605345ac0069ca743",
+      "outcome_hash": "b9f6fab172b35fe48c44ef6626b3fb3cf30d65b1e967129a83c581fc5cd8be73"
+    },
+    {
+      "action": {
+        "params": {
+          "period": 3
+        },
+        "target": "perf_363d9f0e70d678c8_8",
+        "type": "fork"
+      },
+      "state_hash": "6a4e25c555f3bfd7c9f250c59dd1b47272dfa3e14a7b17fd58cb8537581844f7",
+      "outcome_hash": "8610092bdca9fb6ecc3b2b90f642ad61a1c2f4347d549b6fbe58abe50c85e4a8"
+    },
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "seal"
+      },
+      "state_hash": "8061ee8d46320353b614d9d70a3c2e1be55aa945416c7106f56297702c31b7cc",
+      "outcome_hash": "25136fbb249b8e3618e01a72547bd4745a999988298b081ec64d09661bc7e8c2"
+    },
+    {
+      "action": {
+        "target": "perf_363d9f0e70d678c8_2",
+        "type": "replay"
+      },
+      "state_hash": "cd6f500a22c6dada7e6a720d0159383dae88046cc1910e8e5d2783bd795657d2",
+      "outcome_hash": "cfe30695ca9d65bb14755be26ed024687e89f39441f5f1e63aae65e83b6d3a30"
+    },
+    {
+      "action": {
+        "type": "leave"
+      },
+      "state_hash": "fe4ae348cc22e04fc263ae170b0d5dd7f4c00c54f67f731b83f0ec48d45c956c",
+      "outcome_hash": "573a9a23690f7ded420188c4f0a2255f9fe79232b3ec793815e6be7d96a3d7aa"
+    }
+  ]
+}

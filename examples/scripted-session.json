@@ -1,0 +1,322 @@
+{
+  "format": 1,
+  "engine_version": 4,
+  "rules_version": 4,
+  "provenance": "Prescribed rule script over real localhost HTTP. Interface and deterministic replay evidence only; not a model preference or pleasure trial.",
+  "actions": [
+    {
+      "seq": 1,
+      "action": {
+        "params": {
+          "release_tick": 8
+        },
+        "target": "resonance_1",
+        "type": "perform"
+      },
+      "kind": "perform",
+      "cost": 2,
+      "piece_id": "orbit",
+      "tick": 24,
+      "cycle": null
+    },
+    {
+      "seq": 2,
+      "action": {
+        "target": "run4_4cbea6b96313f73a_1",
+        "type": "extend"
+      },
+      "kind": "extend",
+      "cost": 2,
+      "piece_id": "orbit",
+      "tick": 48,
+      "cycle": {
+        "conditions": "固定捕获机器；门保持打开；没有待注入输入；完整存量与相对待传播队列重复；期间有非零响应。新输入或控制会清除认证。",
+        "detected_at": 25,
+        "first_seen_at": 9,
+        "period": 16
+      }
+    },
+    {
+      "seq": 3,
+      "action": {
+        "target": "perf4_4cbea6b96313f73a_1_822da5ec0b",
+        "type": "replay"
+      },
+      "kind": "replay",
+      "cost": 2,
+      "piece_id": "orbit",
+      "tick": 24,
+      "cycle": null
+    },
+    {
+      "seq": 4,
+      "action": {
+        "target": "run4_4cbea6b96313f73a_1",
+        "type": "hold"
+      },
+      "kind": "hold",
+      "cost": 2,
+      "piece_id": "orbit",
+      "tick": 72,
+      "cycle": {
+        "conditions": "固定捕获机器；门保持打开；没有待注入输入；完整存量与相对待传播队列重复；期间有非零响应。新输入或控制会清除认证。",
+        "detected_at": 25,
+        "first_seen_at": 9,
+        "period": 16
+      }
+    },
+    {
+      "seq": 5,
+      "action": {
+        "target": "run4_4cbea6b96313f73a_1",
+        "type": "tap"
+      },
+      "kind": "tap",
+      "cost": 2,
+      "piece_id": "orbit",
+      "tick": 96,
+      "cycle": {
+        "conditions": "固定捕获机器；门保持打开；没有待注入输入；完整存量与相对待传播队列重复；期间有非零响应。新输入或控制会清除认证。",
+        "detected_at": 89,
+        "first_seen_at": 73,
+        "period": 16
+      }
+    },
+    {
+      "seq": 6,
+      "action": {
+        "target": "echo",
+        "type": "select_piece"
+      },
+      "kind": "select_piece",
+      "cost": 0,
+      "piece_id": "echo",
+      "tick": null,
+      "cycle": null
+    },
+    {
+      "seq": 7,
+      "action": {
+        "params": {
+          "release_tick": 8
+        },
+        "target": "resonance_1",
+        "type": "perform"
+      },
+      "kind": "perform",
+      "cost": 2,
+      "piece_id": "echo",
+      "tick": 24,
+      "cycle": null
+    },
+    {
+      "seq": 8,
+      "action": {
+        "target": "run4_4cbea6b96313f73a_7",
+        "type": "tap"
+      },
+      "kind": "tap",
+      "cost": 2,
+      "piece_id": "echo",
+      "tick": 48,
+      "cycle": null
+    },
+    {
+      "seq": 9,
+      "action": {
+        "target": "weave",
+        "type": "select_piece"
+      },
+      "kind": "select_piece",
+      "cost": 0,
+      "piece_id": "weave",
+      "tick": null,
+      "cycle": null
+    },
+    {
+      "seq": 10,
+      "action": {
+        "params": {
+          "release_tick": 8
+        },
+        "target": "resonance_1",
+        "type": "perform"
+      },
+      "kind": "perform",
+      "cost": 2,
+      "piece_id": "weave",
+      "tick": 24,
+      "cycle": null
+    },
+    {
+      "seq": 11,
+      "action": {
+        "target": "run4_4cbea6b96313f73a_10",
+        "type": "extend"
+      },
+      "kind": "extend",
+      "cost": 2,
+      "piece_id": "weave",
+      "tick": 48,
+      "cycle": null
+    },
+    {
+      "seq": 12,
+      "action": {
+        "type": "leave"
+      },
+      "kind": "leave",
+      "cost": 0,
+      "piece_id": "weave",
+      "tick": 48,
+      "cycle": null
+    }
+  ],
+  "result": {
+    "turns": 12,
+    "energy_remaining": 6,
+    "extensions": 2,
+    "known_cycle_holds": 1,
+    "pulse_interventions": 2,
+    "exact_replays": 1
+  },
+  "last_visible_output": [
+    {
+      "tick": 11,
+      "value": 4
+    },
+    {
+      "tick": 12,
+      "value": 1
+    },
+    {
+      "tick": 13,
+      "value": -4
+    },
+    {
+      "tick": 14,
+      "value": -1
+    },
+    {
+      "tick": 18,
+      "value": 4
+    },
+    {
+      "tick": 19,
+      "value": 2
+    },
+    {
+      "tick": 20,
+      "value": -3
+    },
+    {
+      "tick": 21,
+      "value": -3
+    },
+    {
+      "tick": 22,
+      "value": 3
+    },
+    {
+      "tick": 23,
+      "value": 2
+    },
+    {
+      "tick": 24,
+      "value": 1
+    },
+    {
+      "tick": 25,
+      "value": 4
+    },
+    {
+      "tick": 26,
+      "value": 3
+    },
+    {
+      "tick": 27,
+      "value": -3
+    },
+    {
+      "tick": 28,
+      "value": -4
+    },
+    {
+      "tick": 29,
+      "value": 3
+    },
+    {
+      "tick": 30,
+      "value": 4
+    },
+    {
+      "tick": 31,
+      "value": -1
+    },
+    {
+      "tick": 32,
+      "value": 1
+    },
+    {
+      "tick": 33,
+      "value": 3
+    },
+    {
+      "tick": 34,
+      "value": -3
+    },
+    {
+      "tick": 35,
+      "value": -4
+    },
+    {
+      "tick": 36,
+      "value": 3
+    },
+    {
+      "tick": 37,
+      "value": 4
+    },
+    {
+      "tick": 38,
+      "value": -3
+    },
+    {
+      "tick": 39,
+      "value": -4
+    },
+    {
+      "tick": 40,
+      "value": 3
+    },
+    {
+      "tick": 41,
+      "value": -3
+    },
+    {
+      "tick": 42,
+      "value": -4
+    },
+    {
+      "tick": 43,
+      "value": 3
+    },
+    {
+      "tick": 44,
+      "value": 4
+    },
+    {
+      "tick": 45,
+      "value": -3
+    },
+    {
+      "tick": 46,
+      "value": -4
+    },
+    {
+      "tick": 47,
+      "value": 3
+    }
+  ],
+  "deterministic_replay_verified": true
+}

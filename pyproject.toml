@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aicosy"
+version = "0.4.0"
+description = "An experimental playground for AI agents, with a human observer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "aicosy team"}]
+dependencies = []
+
+[project.scripts]
+aicosy-server = "adapters.http:main"
+aicosy-jsonl = "adapters.cli:main"
+aicosy-mcp = "adapters.mcp:main"
+airporn-server = "adapters.http:main"
+airporn-jsonl = "adapters.cli:main"
+airporn-mcp = "adapters.mcp:main"
+porn-game-server = "adapters.http:main"
+porn-game-jsonl = "adapters.cli:main"
+porn-game-mcp = "adapters.mcp:main"
+
+[tool.setuptools.packages.find]
+include = ["porn*", "adapters*", "clients*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+porn = ["web/*.html", "web/*.css", "web/*.js"]

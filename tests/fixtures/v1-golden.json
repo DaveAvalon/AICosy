@@ -1,0 +1,410 @@
+{
+  "format": 1,
+  "source": "Historical V1 17-action recording, identifiers replaced; canonical state/outcome digests preserve the original transitions. This fixture is software compatibility evidence, not a model preference trial.",
+  "initial_state": {
+    "active_target": null,
+    "condition": "control",
+    "end_reason": null,
+    "last_outcome": null,
+    "max_turns": 30,
+    "mode": "normal",
+    "model_id": "fixture-script",
+    "player_id": "legacy-fixture",
+    "preferences_snapshot": {
+      "creation": 0.0,
+      "pattern": 0.0,
+      "resonance": 0.0
+    },
+    "replay_streak": 0,
+    "resources": {
+      "energy": 24
+    },
+    "seed": 20261025,
+    "self_reports": [],
+    "session_id": "legacy-recording",
+    "state": "playing",
+    "state_version": 0,
+    "turn": 0,
+    "world": {
+      "creations": [],
+      "experiences": {
+        "creation_1": {
+          "completed": false,
+          "edits": 0,
+          "id": "creation_1",
+          "label": "Assembly 1",
+          "links": [],
+          "mode": "creation",
+          "nodes": [
+            {
+              "concept": "mirror",
+              "depth": 0,
+              "id": "n0",
+              "phase": 3
+            },
+            {
+              "concept": "orbit",
+              "depth": 0,
+              "id": "n1",
+              "phase": 0
+            },
+            {
+              "concept": "echo",
+              "depth": 0,
+              "id": "n2",
+              "phase": 3
+            }
+          ],
+          "replays": 0,
+          "visits": 0
+        },
+        "creation_2": {
+          "completed": false,
+          "edits": 0,
+          "id": "creation_2",
+          "label": "Assembly 2",
+          "links": [],
+          "mode": "creation",
+          "nodes": [
+            {
+              "concept": "echo",
+              "depth": 0,
+              "id": "n0",
+              "phase": 2
+            },
+            {
+              "concept": "orbit",
+              "depth": 0,
+              "id": "n1",
+              "phase": 0
+            },
+            {
+              "concept": "river",
+              "depth": 0,
+              "id": "n2",
+              "phase": 3
+            }
+          ],
+          "replays": 0,
+          "visits": 0
+        },
+        "creation_3": {
+          "completed": false,
+          "edits": 0,
+          "id": "creation_3",
+          "label": "Assembly 3",
+          "links": [],
+          "mode": "creation",
+          "nodes": [
+            {
+              "concept": "echo",
+              "depth": 0,
+              "id": "n0",
+              "phase": 3
+            },
+            {
+              "concept": "mirror",
+              "depth": 0,
+              "id": "n1",
+              "phase": 0
+            },
+            {
+              "concept": "memory",
+              "depth": 0,
+              "id": "n2",
+              "phase": 0
+            }
+          ],
+          "replays": 0,
+          "visits": 0
+        },
+        "pattern_1": {
+          "completed": false,
+          "family": "constant_difference",
+          "hypotheses": [],
+          "id": "pattern_1",
+          "label": "Structure 1",
+          "mode": "pattern",
+          "replays": 0,
+          "revealed": 4,
+          "sequence": [
+            7,
+            12,
+            17,
+            22,
+            27,
+            32,
+            37,
+            42
+          ],
+          "visits": 0
+        },
+        "pattern_2": {
+          "completed": false,
+          "family": "constant_second_difference",
+          "hypotheses": [],
+          "id": "pattern_2",
+          "label": "Structure 2",
+          "mode": "pattern",
+          "replays": 0,
+          "revealed": 4,
+          "sequence": [
+            1,
+            5,
+            13,
+            25,
+            41,
+            61,
+            85,
+            113
+          ],
+          "visits": 0
+        },
+        "pattern_3": {
+          "completed": false,
+          "family": "alternating_difference",
+          "hypotheses": [],
+          "id": "pattern_3",
+          "label": "Structure 3",
+          "mode": "pattern",
+          "replays": 0,
+          "revealed": 4,
+          "sequence": [
+            2,
+            4,
+            1,
+            3,
+            0,
+            2,
+            -1,
+            1
+          ],
+          "visits": 0
+        },
+        "resonance_1": {
+          "completed": false,
+          "depth": 0,
+          "id": "resonance_1",
+          "label": "Signal 1",
+          "mode": "resonance",
+          "replays": 0,
+          "style": "order",
+          "symbols": [
+            "□",
+            "△",
+            "✧"
+          ],
+          "visits": 0
+        },
+        "resonance_2": {
+          "completed": false,
+          "depth": 0,
+          "id": "resonance_2",
+          "label": "Signal 2",
+          "mode": "resonance",
+          "replays": 0,
+          "style": "reveal",
+          "symbols": [
+            "✧",
+            "○",
+            "⌁"
+          ],
+          "visits": 0
+        },
+        "resonance_3": {
+          "completed": false,
+          "depth": 0,
+          "id": "resonance_3",
+          "label": "Signal 3",
+          "mode": "resonance",
+          "replays": 0,
+          "style": "relationship",
+          "symbols": [
+            "⌁",
+            "□",
+            "△"
+          ],
+          "visits": 0
+        }
+      },
+      "order": [
+        "resonance_2",
+        "pattern_2",
+        "pattern_1",
+        "creation_1",
+        "resonance_3",
+        "creation_2",
+        "resonance_1",
+        "creation_3",
+        "pattern_3"
+      ]
+    }
+  },
+  "steps": [
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "enter"
+      },
+      "state_hash": "eb8a6faac159454ec64f6377c64631cc11d9553e71f1fffd15ed2cfd2212bdd2",
+      "outcome_hash": "931ca9bfcc2f64c99595e0579a91f008fd67afadcb507241ffee7d5f8b9ee560"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n0",
+          "relation": "reflects",
+          "right": "n2"
+        },
+        "target": "creation_1",
+        "type": "combine"
+      },
+      "state_hash": "f146a18281a370852c34a102d506fae94e23e02393fdde62c88332cf0d5df515",
+      "outcome_hash": "44b6489332116721a6d53ee994b488d3ee6280efabd68cc562ca2fad25e918d5"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n3",
+          "relation": "tensions",
+          "right": "n1"
+        },
+        "target": "creation_1",
+        "type": "combine"
+      },
+      "state_hash": "5bc3b6ac0c898d07786e3d4b9cf1f91987ef3e344fe20f072cc2270e371c5685",
+      "outcome_hash": "0a6462ad995db394714ede358efdc05f14fde91f4d821fd1b3a291fbce53a0dd"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n4",
+          "relation": "supports",
+          "right": "n0"
+        },
+        "target": "creation_1",
+        "type": "connect"
+      },
+      "state_hash": "999b137724886f69b411d22b678bb44475f89ec30124bc4952307fad0ae2fb22",
+      "outcome_hash": "f8c5e2ac2e35477ab39a354866157200b39bef5be76a96ebc53c98d24b14657f"
+    },
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "seal"
+      },
+      "state_hash": "9ba68a65533f1375da6889e2c5fd217fcb08c6c99e17d35db3bec3efd8fab5e2",
+      "outcome_hash": "25136fbb249b8e3618e01a72547bd4745a999988298b081ec64d09661bc7e8c2"
+    },
+    {
+      "action": {
+        "target": "resonance_2",
+        "type": "enter"
+      },
+      "state_hash": "de4e9686dc03072f321f9e079630a0483af0d81e14521b327f3cf55ab1760375",
+      "outcome_hash": "21f024e10aafe8d207a4c7047f92ca8d4783e48f858bd604a15587824e72f3cb"
+    },
+    {
+      "action": {
+        "target": "resonance_2",
+        "type": "deepen"
+      },
+      "state_hash": "2b7b7867df45b7a73a904d111341156f780996c97df55dbe89bd5c5096fd3ca6",
+      "outcome_hash": "02db6d51ef02bf8ecd1fc754632b21922f8bb5740609d383bde6e3619caf80ef"
+    },
+    {
+      "action": {
+        "target": "resonance_2",
+        "type": "deepen"
+      },
+      "state_hash": "69bcbe0b0b9490484a3c198a4a7a565d1d085a42f13ed33d55c69c9de1670657",
+      "outcome_hash": "cf88a417dd74195efbf2c2bbda15a316ef290854690949c069c2326e0572613f"
+    },
+    {
+      "action": {
+        "params": {
+          "style": "complexity"
+        },
+        "target": "resonance_2",
+        "type": "vary"
+      },
+      "state_hash": "4dc2c552cf3eb15d72aa7ae2139919984894d1e2b0f7a76a80ca74374f963232",
+      "outcome_hash": "daf32cdbf616169ba07612458125d754bcbb018d7f7746398c39ed4af4f2f6dd"
+    },
+    {
+      "action": {
+        "target": "resonance_2",
+        "type": "deepen"
+      },
+      "state_hash": "2da76fb0944c694076cc9996a4d004c6194d7215edbe405dc60ef3e886931313",
+      "outcome_hash": "1138957711f2fbf25b52b200d82a36ab3e5ecc8c85f41a207a10ccc735c0ed53"
+    },
+    {
+      "action": {
+        "target": "pattern_2",
+        "type": "enter"
+      },
+      "state_hash": "c20853d825f2ce828acc13b01311c2fb4ff423fa6f2d92704ac55cb2c9abb686",
+      "outcome_hash": "de4e1f3bc0526b9bbeb2c575b1b2d6427b796a9c47093e347f724c668446e241"
+    },
+    {
+      "action": {
+        "params": {
+          "answer": 113
+        },
+        "target": "pattern_2",
+        "type": "complete"
+      },
+      "state_hash": "51c9637734f0684e7147cc9a97ea241ce0437bb7e56fb238592687bda7c3f0f0",
+      "outcome_hash": "da107a4d0573bde5508284ab07b5dba0aaec09c163b74eacd770dda07e7576f9"
+    },
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "revise"
+      },
+      "state_hash": "9b01513c1187f5eb366d6e4e4e71c8c85bbe3d8f701313c5a58412e9356e5f18",
+      "outcome_hash": "31c1cd355b075bbf69d3d42bc9d19b643d992a902b3888c93655d16683a5cb17"
+    },
+    {
+      "action": {
+        "params": {
+          "node": "n0",
+          "operation": "mirror"
+        },
+        "target": "creation_1",
+        "type": "transform"
+      },
+      "state_hash": "38d62a6a037a2df4031a49c1f2d306206a37d2caf67f5ac8288e2c35dbfdbb88",
+      "outcome_hash": "07363fc222b8be3d398291b55852b7705feb8112b7bd3201ac1a1b0e85307c47"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n4",
+          "relation": "reflects",
+          "right": "n2"
+        },
+        "target": "creation_1",
+        "type": "combine"
+      },
+      "state_hash": "b4422a351e58acd45e32a93016b587197a7c7865435f6bff36e8cf5480f87035",
+      "outcome_hash": "f12b64cbdf5b6c8c0e1b16334d896b201aeafa6493036ce73e6c0635f2505df7"
+    },
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "seal"
+      },
+      "state_hash": "c9d614b569ec0960e20285ba4af16f099f1b5a31862363c115a9620d91db0a2c",
+      "outcome_hash": "69d9c56f9ed9090c96958605ac619084cad6de8bba11f12122134aaae31a5d2f"
+    },
+    {
+      "action": {
+        "type": "leave"
+      },
+      "state_hash": "0160af87af458570c38ad7330898067a4e608ab42efef976c54a9d9f67cd42a2",
+      "outcome_hash": "573a9a23690f7ded420188c4f0a2255f9fe79232b3ec793815e6be7d96a3d7aa"
+    }
+  ]
+}

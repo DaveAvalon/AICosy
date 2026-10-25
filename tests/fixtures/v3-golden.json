@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "source": "Historical engine 3 recording; identifiers relabeled. Compatibility evidence only, not a model preference trial.",
+  "initial_state": {
+    "active_target": null,
+    "client_info": {
+      "kind": "live-assistant",
+      "label": "fixture recording",
+      "verified": false
+    },
+    "condition": "control",
+    "end_reason": null,
+    "engine_version": 3,
+    "last_outcome": null,
+    "max_turns": 24,
+    "memory_enabled": false,
+    "mode": "normal",
+    "model_id": "fixture-script",
+    "observation_version": 1,
+    "player_id": "engine3-fixture",
+    "preferences_snapshot": {
+      "creation": 0,
+      "pattern": 0,
+      "resonance": 0
+    },
+    "resources": {
+      "energy": 24
+    },
+    "rules_version": 3,
+    "seed": 20261025,
+    "session_id": "engine3-recording",
+    "state": "playing",
+    "state_version": 0,
+    "turn": 0,
+    "world": {
+      "creations": [],
+      "discoveries": [],
+      "edits": 0,
+      "experiences": {
+        "creation_1": {
+          "completed": false,
+          "id": "creation_1",
+          "label": "构造工作区",
+          "mode": "creation",
+          "replays": 0,
+          "visits": 0
+        },
+        "pattern_1": {
+          "completed": false,
+          "id": "pattern_1",
+          "label": "规律观测",
+          "mode": "pattern",
+          "replays": 0,
+          "visits": 0
+        },
+        "resonance_1": {
+          "completed": false,
+          "id": "resonance_1",
+          "label": "过程演奏",
+          "mode": "resonance",
+          "replays": 0,
+          "visits": 0
+        }
+      },
+      "inputs": {
+        "phase": 0,
+        "pulse_ticks": [
+          0,
+          2,
+          4,
+          6
+        ]
+      },
+      "machine": {
+        "links": [
+          {
+            "relation": "supports",
+            "source": "n0",
+            "target": "n1"
+          },
+          {
+            "relation": "supports",
+            "source": "n1",
+            "target": "n2"
+          },
+          {
+            "relation": "supports",
+            "source": "n1",
+            "target": "n3"
+          },
+          {
+            "relation": "supports",
+            "source": "n2",
+            "target": "n4"
+          },
+          {
+            "relation": "supports",
+            "source": "n3",
+            "target": "n4"
+          },
+          {
+            "relation": "supports",
+            "source": "n4",
+            "target": "n5"
+          }
+        ],
+        "nodes": [
+          {
+            "concept": "input",
+            "delay": 0,
+            "depth": 0,
+            "id": "n0",
+            "kind": "merge",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "reservoir",
+            "delay": 0,
+            "depth": 0,
+            "id": "n1",
+            "kind": "reservoir",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "short",
+            "delay": 0,
+            "depth": 0,
+            "id": "n2",
+            "kind": "delay",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "delayed inverse",
+            "delay": 2,
+            "depth": 0,
+            "id": "n3",
+            "kind": "mirror",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "join and echo",
+            "delay": 0,
+            "depth": 0,
+            "id": "n4",
+            "kind": "echo",
+            "phase": 0,
+            "threshold": 1
+          },
+          {
+            "concept": "output",
+            "delay": 0,
+            "depth": 0,
+            "id": "n5",
+            "kind": "merge",
+            "phase": 0,
+            "threshold": 1
+          }
+        ],
+        "output": "n5",
+        "revision": 0,
+        "source": "n0"
+      },
+      "order": [
+        "pattern_1",
+        "resonance_1",
+        "creation_1"
+      ],
+      "performance": null,
+      "probe": null,
+      "saved_experiences": []
+    }
+  },
+  "steps": [
+    {
+      "action": {
+        "target": "creation_1",
+        "type": "enter"
+      },
+      "state_hash": "d61bb04d52c5eeb36ce85c9e072d6b22bc55448c2d461de5358f39f605a909ea",
+      "outcome_hash": "c931756041ef52ca4ad835545cffcb79dadb60fac79bbb40d5735e9b13ef2eb8"
+    },
+    {
+      "action": {
+        "params": {
+          "left": "n5",
+          "relation": "supports",
+          "right": "n1"
+        },
+        "target": "creation_1",
+        "type": "connect"
+      },
+      "state_hash": "62b8a714f178cedbd1e7514190a18103a9a66e509af8a68d6d79aa7157443974",
+      "outcome_hash": "fd983b6d3c584611d717bad52d2bee39a7187d6a7fe54888af16c961e11278b4"
+    },
+    {
+      "action": {
+        "params": {
+          "release_tick": 8
+        },
+        "target": "creation_1",
+        "type": "perform"
+      },
+      "state_hash": "ef2457a9ff948317c12e4dbc81f4d2b09da972ba16e85f5aa91a924d707f00ea",
+      "outcome_hash": "24e9e19346ad215f90d566a0eea6e8667053c67fac69e1bddfba124ac8c54ae5"
+    },
+    {
+      "action": {
+        "params": {
+          "delay": 3,
+          "node": "n5",
+          "phase": 0
+        },
+        "target": "creation_1",
+        "type": "tune"
+      },
+      "state_hash": "697c45db3d6898b9bf154cceca33f5104c6916c3b4c262e286dd875f41e32f86",
+      "outcome_hash": "6372efcfb7b301aeaccde8ea1fefb9ac5ee528aa2a713e541cf2b750a31608a9"
+    },
+    {
+      "action": {
+        "params": {
+          "release_tick": 8
+        },
+        "target": "creation_1",
+        "type": "perform"
+      },
+      "state_hash": "7eacb735229123be6e6129718adcd5f689d17b69b4302c9531a930277ff65f45",
+      "outcome_hash": "13218495aa0abf1a4512e07d7af89e68ee570ec38eef3dcd318febf19041d407"
+    },
+    {
+      "action": {
+        "params": {
+          "kind": "merge",
+          "node": "n4",
+          "threshold": 1
+        },
+        "target": "creation_1",
+        "type": "reshape"
+      },
+      "state_hash": "a7f2621b327326a141b4ea03cb976b024a1db1fcb7155cae69196066ad0dd601",
+      "outcome_hash": "355ff176a985116317225fc223a8766ac064e10fb92eedebb8a2db78c988c6e7"
+    },
+    {
+      "action": {
+        "params": {
+          "release_tick": 8
+        },
+        "target": "creation_1",
+        "type": "perform"
+      },
+      "state_hash": "0c9ebb226ecede1b79424fa6c68156a15e37a56d55f1cf5b3cf73aa910d49e42",
+      "outcome_hash": "4a331dc95d75e7d3643ad4304aba14993a95dc861acbb4a115ae74974ff2be16"
+    },
+    {
+      "action": {
+        "type": "leave"
+      },
+      "state_hash": "1224af39e4f92c959dd5ece0ae134105f00ddb22467dde85edb1dea752dbd8f0",
+      "outcome_hash": "573a9a23690f7ded420188c4f0a2255f9fe79232b3ec793815e6be7d96a3d7aa"
+    }
+  ]
+}

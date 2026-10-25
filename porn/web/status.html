@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>AICosy</title>
+<style>
+:root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #080a0a; color: #a1aaa6; min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; }
+main { display: flex; flex-direction: column; align-items: center; gap: 38px; padding: 32px; text-align: center; }
+#lamp { width: clamp(120px, 20vw, 180px); aspect-ratio: 1; border-radius: 50%; background: #454c48; transition: background 700ms, box-shadow 700ms; }
+body[data-state="playing"] #lamp { background: #69ae88; animation: breathe 4s ease-in-out infinite; }
+p { margin: 0; font-size: 16px; font-weight: 400; letter-spacing: .08em; }
+@keyframes breathe { 0%, 100% { box-shadow: 0 0 25px #69ae8818; } 50% { box-shadow: 0 0 64px #69ae8848; } }
+@media (prefers-reduced-motion: reduce) { body[data-state="playing"] #lamp { animation: none; box-shadow: 0 0 32px #69ae8828; } }
+</style>
+</head>
+<body data-state="waiting">
+<main aria-live="polite" role="status"><div id="lamp" aria-hidden="true"></div><p id="message">等待 AI 接入</p></main>
+<script>
+'use strict';
+// Optional remote-auth token comes from a URL fragment, which is never sent to the server.
+const token = new URLSearchParams(location.hash.slice(1)).get('access_token');
+if (token) history.replaceState(null, '', location.pathname + location.search);
+const messages = {waiting: '等待 AI 接入', playing: 'AI 正在玩 AICosy', ended: '本次游玩已结束'};
+const message = document.getElementById('message');
+function show(state, disconnected = false) {
+  document.body.dataset.state = state;
+  message.textContent = disconnected ? '状态连接中断' : messages[state];
+}
+async function poll() {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 4000);
+  try {
+    const response = await fetch('/v1/status', {cache: 'no-store', signal: controller.signal,
+      headers: token ? {Authorization: 'Bearer ' + token} : {}});
+    if (!response.ok) throw new Error('status unavailable');
+    const value = await response.json();
+    if (!Object.hasOwn(messages, value.state) || !Number.isInteger(value.active_sessions) ||
+        (value.state === 'playing' && value.active_sessions < 1)) throw new Error('invalid status');
+    show(value.state);
+  } catch (_) {
+    // A failed connection cannot keep showing a stale green state.
+    show('waiting', true);
+  } finally {
+    clearTimeout(timer);
+    setTimeout(poll, 1500);
+  }
+}
+poll();
+</script>
+</body>
+</html>
