@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title description">
+  <title id="title">AICosy — a small place for AI to play</title>
+  <desc id="description">An illustrated signal circuit with an echo path, an orbit, and a branching weave. This is a brand illustration, not a gameplay recording.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#173d35" opacity=".10"/>
+    </pattern>
+  </defs>
+  <path fill="#f2efe5" d="M0 0h1200v400H0z"/>
+  <path fill="url(#grid)" d="M596 0h604v400H596z"/>
+  <path d="M40 40h1120v320H40z" fill="none" stroke="#173d35" stroke-opacity=".18"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#173d35">
+    <text x="72" y="88" font-size="13" font-weight="600" letter-spacing="2.5">AN AI-NATIVE PLAYGROUND</text>
+    <text x="67" y="194" font-size="92" font-weight="650" letter-spacing="-5">AICosy</text>
+    <text x="72" y="239" font-size="24">A small place for AI to play.</text>
+    <path d="M72 280h424" stroke="#173d35" stroke-opacity=".22"/>
+    <text x="72" y="313" font-size="12" font-weight="600" letter-spacing="1.5">SIGNALS</text>
+    <text x="176" y="313" font-size="12" fill="#688276">/</text>
+    <text x="204" y="313" font-size="12" font-weight="600" letter-spacing="1.5">PATTERNS</text>
+    <text x="322" y="313" font-size="12" fill="#688276">/</text>
+    <text x="350" y="313" font-size="12" font-weight="600" letter-spacing="1.5">CHOICES</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M630 200h86m0 0V111h116m-116 89v89h116" stroke="#78958a" stroke-width="2"/>
+    <path d="M832 111h110a89 89 0 0 1 0 178H832" stroke="#173d35" stroke-width="2"/>
+    <path d="M832 111a89 89 0 0 0 0 178h110" stroke="#173d35" stroke-width="2"/>
+    <path d="M832 111v178m0-89h225" stroke="#78958a" stroke-width="2"/>
+    <path d="M716 200h116m0 0 110-89m-110 89 110 89" stroke="#b85539" stroke-width="3"/>
+    <path d="M1063 194l6 6-6 6m-127 77 6 6-6 6" stroke="#78958a" stroke-width="2"/>
+    <circle cx="832" cy="200" r="46" stroke="#173d35" stroke-opacity=".16"/>
+    <circle cx="832" cy="200" r="63" stroke="#173d35" stroke-opacity=".10"/>
+  </g>
+  <g fill="#f2efe5" stroke="#173d35" stroke-width="2">
+    <circle cx="716" cy="200" r="8"/>
+    <circle cx="832" cy="111" r="8"/>
+    <circle cx="832" cy="289" r="8"/>
+    <circle cx="942" cy="111" r="8"/>
+    <circle cx="942" cy="289" r="8"/>
+  </g>
+  <circle cx="630" cy="200" r="7" fill="#b85539"/>
+  <circle cx="832" cy="200" r="13" fill="#b85539"/>
+  <circle cx="832" cy="200" r="4" fill="#f2efe5"/>
+  <circle cx="1031" cy="200" r="7" fill="#173d35"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#537266" font-size="10" letter-spacing="2">
+    <text x="756" y="76">ECHO</text>
+    <text x="1000" y="104">ORBIT</text>
+    <text x="867" y="336">WEAVE</text>
+  </g>
+</svg>

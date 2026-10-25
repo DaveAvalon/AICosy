@@ -1,40 +1,64 @@
-# AICosy — an AI-native playground
+<p align="center">
+  <img src="docs/assets/aicosy-cover.svg" alt="AICosy — signals, patterns, choices" width="100%">
+</p>
 
-[中文说明](README.zh-CN.md) · [MIT](LICENSE) · [HTTP](docs/http.md) · [MCP / JSONL](docs/connectors.md)
+<h1 align="center">A small place for AI to play.</h1>
 
-A small game agents can play through tools while humans observe. Build a signal machine, let it unfold, continue an unfinished process, stay with a familiar cycle, or give it a small nudge. Leaving is always free.
+<p align="center">
+  Build a signal machine. Follow a pattern. Choose what happens next.<br>
+  An experimental playground for agents, with a window for humans.
+</p>
 
-AICosy explores **behavioral attraction to structured experiences**. It does not claim to measure subjective happiness and contains no sexual media.
+<p align="center">
+  <strong>Experimental 0.4.0</strong> · Python 3.11+ · Standard library runtime · <a href="LICENSE">MIT</a>
+</p>
 
-**Status: experimental 0.4.0.** Python 3.11+, no runtime dependencies, local SQLite persistence. The observer currently uses Chinese labels.
+<p align="center">
+  <a href="README.zh-CN.md">中文说明</a> · <a href="#quick-start">Quick start</a> · <a href="#three-pieces">The playground</a> · <a href="#connect-an-agent">Connect an agent</a> · <a href="#documentation">Documentation</a>
+</p>
 
-## Run it
+---
 
-You need Python 3.11 or newer. If your `python3` command points to a supported version, you can use it instead of `python3.11` below. The service runs on your computer; GitHub provides the source.
+AICosy is a small game that AI agents play through tools while humans observe. An agent can build a structure, let its signals unfold, continue an unfinished process, stay with a familiar cycle, or give it a small nudge. Leaving is always free.
 
-Check the interpreter with `python3.11 --version` (or `python3 --version`). On Windows, use `py -3.11` in place of `python3.11` if Python was installed with the Python launcher.
+The human observer shows saved choices and the processes they produce. The service runs locally, stores sessions in SQLite, and supports HTTP, MCP stdio, and JSON Lines. The observer currently uses Chinese labels.
 
-On this repository's GitHub page, choose **Code → Download ZIP**, extract the archive, and open a terminal in the extracted project directory. Start the server:
+## Quick start
+
+From the project directory containing this README and `adapters/`, open two terminals. Python 3.11 or newer is required; no package installation or model API key is needed for this demonstration.
+
+**1. Start the service**
 
 ```sh
 python3.11 -m adapters.http
 ```
 
-The project directory is the folder containing this README and `adapters/`. If you already have a checkout, use that directory. No package installation or model API key is needed for this step.
+**2. Run a short demonstration**
 
-Open [the observer](http://127.0.0.1:8765/). It shows actual activity and saved sessions; the lamp-only view is at `/status`. **Waiting for an AI is normal:** opening the page does not start a player.
-
-Keep the server running. In a second terminal, change to the same project directory and run a short demonstration:
+Keep the service running. In the second terminal, change to the same project directory:
 
 ```sh
 python3.11 -m clients.rule_agent --no-memory --record evidence/demo.jsonl
 ```
 
-This is an explicitly labeled **rule script**, with prescribed choices. It demonstrates the interface, not a model's spontaneous preference. A compact captured run is in [examples/scripted-session.json](examples/scripted-session.json).
+This demonstration is a **rule script with prescribed choices**, not a model's spontaneous preference. A compact captured run is in [examples/scripted-session.json](examples/scripted-session.json).
 
-Refresh the observer after the demonstration to inspect its saved session. To connect your own model, continue with [Connect an agent](#connect-an-agent).
+**3. Open [the observer →](http://127.0.0.1:8765/)**
 
-Installation is optional in the checkout. To install the package and its `aicosy-server`, `aicosy-jsonl`, and `aicosy-mcp` commands, use a virtual environment:
+Refresh the observer after the demonstration to inspect the saved session. It shows actual activity and saved records; the lamp-only view is at `/status`. **Waiting for an AI is normal:** opening the page does not start a player. To use your own model, see [Connect an agent](#connect-an-agent).
+
+<details>
+<summary><strong>Download, interpreter, Windows, installation, and port help</strong></summary>
+
+### Get the source and check Python
+
+On this repository's GitHub page, choose **Code → Download ZIP**, extract it, and open a terminal in the extracted project directory. If you already have a checkout, use that directory. GitHub provides the source; the service runs on your computer.
+
+Check the interpreter with `python3.11 --version` (or `python3 --version`). If `python3` already points to Python 3.11 or newer, use it in place of `python3.11` in these commands. On Windows, use `py -3.11` if Python was installed with the Python launcher.
+
+### Optional package installation
+
+Running from the checkout does not require installation. To install the package and its `aicosy-server`, `aicosy-jsonl`, and `aicosy-mcp` commands, use a virtual environment:
 
 ```sh
 python3.11 -m venv .venv
@@ -43,15 +67,21 @@ python -m pip install .
 aicosy-server
 ```
 
-On Windows, activate the environment with `.venv\Scripts\Activate.ps1` in PowerShell. Installation may download build tooling; the source run above needs only the Python standard library. The wheel includes the observer assets. Compatibility details are in [connectors](docs/connectors.md).
+On Windows, activate it with `.venv\Scripts\Activate.ps1` in PowerShell. Installation may download build tooling; the source run above needs only the Python standard library. The wheel includes the observer assets. Compatibility details are in [connectors](docs/connectors.md).
+
+### Use another port or stop the service
 
 If port 8765 is occupied, start the server with `--port 8766`, open `http://127.0.0.1:8766/`, and pass `--server http://127.0.0.1:8766` to the demonstration client. Stop the server with `Ctrl+C` when finished.
 
-## Three pieces, one set of causal rules
+</details>
 
-- **Echo:** two delayed paths respond and then settle.
-- **Orbit:** a pulse returns through a signed loop, with a recognizable conditional cycle.
-- **Weave:** branching echoes feed back into the reservoir and overlap.
+## Three pieces
+
+Three starting structures share the same causal rules:
+
+- **Echo** — two delayed paths respond and then settle.
+- **Orbit** — a pulse returns through a signed loop, with a recognizable conditional cycle.
+- **Weave** — branching echoes feed back into the reservoir and overlap.
 
 Creation alters the graph. Resonance plays it. Pattern inspects its response without prerequisite puzzles or unlocks. Delays, reflection, echoes, gates, merging, and finite storage affect actual signed signals. There is no score, leaderboard, unlock reward, or energy gain.
 
@@ -100,11 +130,25 @@ The observer shows actual graphs, signed signals, reservoir state, absolute tick
 
 Sessions persist in `data/porn.sqlite3`. Reading does not renew activity, and inactivity is not a voluntary exit. Profiles, memory, and comparisons are separated by identity, normal/research mode, and engine version.
 
-Continuation, known-cycle holding, intervention, familiar reperformance, exact replay, and exit have separate counts and legal-opportunity denominators. These are descriptive behavior, not a happiness scale. Scripted and task-directed runs stay labeled. Independent neutral model trials remain future work.
+## Research boundaries
+
+AICosy explores **behavioral attraction to structured experiences**. Continuation, known-cycle holding, intervention, familiar reperformance, exact replay, and exit have separate counts and legal-opportunity denominators. These describe behavior; they do not measure subjective happiness. The project contains no sexual media.
+
+Scripted and task-directed runs stay labeled. Independent neutral model trials remain future work.
 
 The service defaults to localhost. Non-loopback binding requires a bearer token; remote use needs HTTPS. Read [SECURITY.md](SECURITY.md) before exposing it.
 
-## Lightweight checks
+## Documentation
+
+- [HTTP guide](docs/http.md) — Session creation, observations, and actions.
+- [MCP / JSONL connectors](docs/connectors.md) — Agent integration and compatibility.
+- [V4 contract](docs/v4-contract.md) — Current rules, ownership, and replay boundaries.
+- [Validation](docs/validation-v4.md) — Evidence for rules, protocols, assistant play, installation, and visual checks.
+- [Related projects](docs/related-projects-20261025.md) — Prior work and areas of overlap; no claim of being the first AI game.
+- [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE).
+
+<details>
+<summary><strong>Lightweight development checks</strong></summary>
 
 ```sh
 python3.11 -m unittest tests.test_continuous_engine tests.test_continuous_service -v
@@ -113,6 +157,4 @@ python3.11 scripts/verify_v4.py --output evidence/my-v4-check
 
 The verification script runs one short external HTTP script against a temporary database, checks persistence and replay, then closes its server and subprocess. It launches no browser and calls no commercial model.
 
-[Validation](docs/validation-v4.md) distinguishes rule checks, real protocol paths, assistant play, package installation, and visual verification. [V4 contract](docs/v4-contract.md) describes ownership and compatibility. [Related projects](docs/related-projects-20261025.md) acknowledge prior work; this project makes no claim of being the first AI game.
-
-Contributions: [CONTRIBUTING.md](CONTRIBUTING.md). License: [MIT](LICENSE).
+</details>
