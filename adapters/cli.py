@@ -4,8 +4,8 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from porn.errors import GameError
-from porn.service import GameService
+from aicosy.errors import GameError
+from aicosy.service import GameService
 
 MAX_LINE = 1024 * 1024
 

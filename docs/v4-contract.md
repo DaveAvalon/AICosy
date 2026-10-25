@@ -4,7 +4,7 @@ Current version: engine 4, rules 4, observation format 1, application 0.4.0. V1â
 
 ## Causal runtime
 
-`porn/dynamics_v4.py` owns propagation and the serializable checkpoint. A checkpoint stores the next absolute tick, signed reservoir quantities, gate state, the complete relative pending queue, remaining input schedule, and observed cycle evidence. Displayed frames never reconstruct pending signals.
+`aicosy/dynamics_v4.py` owns propagation and the serializable checkpoint. A checkpoint stores the next absolute tick, signed reservoir quantities, gate state, the complete relative pending queue, remaining input schedule, and observed cycle evidence. Displayed frames never reconstruct pending signals.
 
 `advance(machine, checkpoint, ticks, controls)` returns the next checkpoint and newly processed frames/events without mutating its input. Signals arriving in later segments remain in the queue. The captured machine is fixed for one run; editing the working graph does not change an existing run.
 
@@ -50,11 +50,11 @@ Normal observation returns the latest 24 absolute-tick frames and recent causal 
 
 `observation.current_run` separately identifies the real resumable run: run_id, piece_id, tick, state, can_extend, cycle and remaining_activity. `observation.performance` and `experience` describe the currently displayed process. No unobserved future frames or hidden seed are exposed.
 
-`porn/service.py` continues to own identities, transactions, activity, SQLite persistence and event ordering. `porn/observer.py` is a read-only projection. HTTP, MCP and JSONL call the service and do not implement propagation. Profiles, reset boundaries, libraries and comparisons are separated by engine version and normal/research mode.
+`aicosy/service.py` continues to own identities, transactions, activity, SQLite persistence and event ordering. `aicosy/observer.py` is a read-only projection. HTTP, MCP and JSONL call the service and do not implement propagation. Profiles, reset boundaries, libraries and comparisons are separated by engine version and normal/research mode.
 
 V4 reuses frozen V2 configuration/schema helpers and V3 structural validation/edit helpers. It does not call older transition or simulation functions. Removing those historical modules would first require extracting these explicit helper dependencies.
 
-Static observer assets live once under `porn/web/` and are included in the wheel. The observer does not start players, renew activity, or mutate game state.
+Static observer assets live once under `aicosy/web/` and are included in the wheel. The observer does not start players, renew activity, or mutate game state.
 
 ## Evidence and interpretation
 

@@ -22,8 +22,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from adapters.http import make_server
-from porn import engine
-from porn.service import GameService
+from aicosy import engine
+from aicosy.service import GameService
 
 
 def write_json(path, value):
@@ -32,7 +32,7 @@ def write_json(path, value):
 
 @contextmanager
 def running(server):
-    thread = threading.Thread(target=server.serve_forever, daemon=True, name="porn-v2-verification")
+    thread = threading.Thread(target=server.serve_forever, daemon=True, name="aicosy-v2-verification")
     thread.start()
     try:
         yield f"http://127.0.0.1:{server.server_port}"
@@ -73,7 +73,7 @@ def main():
     if (output/"validation.json").exists():
         parser.error("output already has completed evidence; choose another directory")
     legacy = assert_legacy_replay()
-    with tempfile.TemporaryDirectory(prefix="porn-v2-verification-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="aicosy-v2-verification-") as temporary:
         database = str(Path(temporary)/"game.sqlite3")
         service = GameService(database)
         try:

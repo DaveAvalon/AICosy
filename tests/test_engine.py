@@ -2,8 +2,8 @@
 import json
 import unittest
 from copy import deepcopy
-from porn.legacy_engine import create_state, observe, transition
-from porn.errors import GameError
+from aicosy.legacy_engine import create_state, observe, transition
+from aicosy.errors import GameError
 
 
 def new(**kwargs):

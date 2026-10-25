@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT))
 
 from adapters.http import make_server
 from clients.common import GameClient
-from porn.service import GameService
+from aicosy.service import GameService
 
 
 def main():
@@ -25,7 +25,7 @@ def main():
     if output.exists() and any(output.iterdir()):
         parser.error("Output must be empty; preserve existing evidence")
     output.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="porn-v3-http-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="aicosy-v3-http-") as temporary:
         db = str(Path(temporary) / "test.sqlite3")
         service = GameService(db)
         server = None

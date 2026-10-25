@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT))
 
 from adapters.http import make_server
 from clients.common import GameClient
-from porn.service import GameService
+from aicosy.service import GameService
 
 
 def write_json(path, value):
@@ -37,7 +37,7 @@ def main():
     if args.example and args.example.exists():
         parser.error("Example already exists; preserve the reviewed example")
     output.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="porn-v4-http-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="aicosy-v4-http-") as temporary:
         db = str(Path(temporary) / "state.sqlite3")
         service = GameService(db)
         server = worker = None

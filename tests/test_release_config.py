@@ -74,7 +74,7 @@ class ReleaseConfigTests(unittest.TestCase):
         for environment, arguments, expected in cases:
             with self.subTest(arguments=arguments, expected=expected), \
                     patch.dict(os.environ, environment, clear=True), \
-                    patch("porn.service.GameService") as service, \
+                    patch("aicosy.service.GameService") as service, \
                     patch.object(http, "make_server") as make_server, \
                     contextlib.redirect_stderr(io.StringIO()):
                 http.main(["--db", ":memory:", *arguments])
@@ -84,7 +84,7 @@ class ReleaseConfigTests(unittest.TestCase):
 
     def test_busy_port_reports_the_alternate_port_and_closes_database(self):
         error = io.StringIO()
-        with patch("porn.service.GameService") as service, \
+        with patch("aicosy.service.GameService") as service, \
                 patch.object(http, "make_server", side_effect=OSError(errno.EADDRINUSE, "Address in use")), \
                 contextlib.redirect_stderr(error), self.assertRaises(SystemExit) as stopped:
             http.main(["--db", ":memory:"])

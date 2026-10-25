@@ -25,8 +25,8 @@ porn-game-jsonl = "adapters.cli:main"
 porn-game-mcp = "adapters.mcp:main"
 
 [tool.setuptools.packages.find]
-include = ["porn*", "adapters*", "clients*"]
+include = ["aicosy*", "adapters*", "clients*"]
 namespaces = false
 
 [tool.setuptools.package-data]
-porn = ["web/*.html", "web/*.css", "web/*.js"]
+aicosy = ["web/*.html", "web/*.css", "web/*.js"]

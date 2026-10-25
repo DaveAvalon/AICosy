@@ -1,9 +1,9 @@
 from copy import deepcopy
 import unittest
 
-from porn import engine_v3
-from porn.dynamics_v3 import DEFAULT_INPUTS, initial_machine, simulate
-from porn.errors import GameError
+from aicosy import engine_v3
+from aicosy.dynamics_v3 import DEFAULT_INPUTS, initial_machine, simulate
+from aicosy.errors import GameError
 
 
 class ReservoirDynamicsTests(unittest.TestCase):

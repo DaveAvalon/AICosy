@@ -3,13 +3,13 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from porn.errors import GameError
-from porn.service import GameService
+from aicosy.errors import GameError
+from aicosy.service import GameService
 
 
 class ExperienceServiceTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix="porn-v3-service-")
+        self.temp = tempfile.TemporaryDirectory(prefix="aicosy-v3-service-")
         self.path = str(Path(self.temp.name) / "state.sqlite3")
         self.now = 1000.
         self.service = GameService(self.path, clock=lambda: self.now)

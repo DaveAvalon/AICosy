@@ -5,14 +5,14 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from porn.errors import GameError
-from porn.service import GameService
-from porn.experiments import experiment_plan, binomial
+from aicosy.errors import GameError
+from aicosy.service import GameService
+from aicosy.experiments import experiment_plan, binomial
 
 
 class ServiceTests(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory(prefix="porn-service-")
+        self.tmp = tempfile.TemporaryDirectory(prefix="aicosy-service-")
         self.path = str(Path(self.tmp.name)/"test.sqlite3")
         self.now = 1000.0
         self.service = GameService(self.path, clock=lambda: self.now)

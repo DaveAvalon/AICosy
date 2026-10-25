@@ -6,7 +6,7 @@ import unittest
 
 from adapters.http import make_server
 from adapters.schemas import SCHEMAS, json_schema, openapi
-from porn.service import GameService
+from aicosy.service import GameService
 
 
 class HTTPTests(unittest.TestCase):

@@ -31,18 +31,20 @@ jobs:
           PYTHONPATH: ${{ runner.temp }}/aicosy-installed
         run: |
           python - <<'PY'
-          from importlib.metadata import metadata
+          from importlib.metadata import files as distribution_files, metadata
           from importlib.resources import files
           from pathlib import Path
-          import porn
+          import aicosy
           from adapters.http import WEB_ROOT
-          assert porn.__version__ == "0.4.0"
+          assert aicosy.__version__ == "0.4.0"
           package = metadata("aicosy")
           assert package["Name"] == "aicosy"
           assert package["Author"] == "aicosy team"
+          installed = [str(path) for path in distribution_files("aicosy")]
+          assert not any(path.startswith("porn/") or path == "porn.py" for path in installed)
           expected = ("observer.html", "observer.css", "observer.js", "status.html")
           for name in expected:
-              resource = files("porn").joinpath("web", name)
+              resource = files("aicosy").joinpath("web", name)
               assert resource.is_file(), name
               assert resource.read_bytes(), name
               assert (Path(WEB_ROOT) / name).is_file(), name

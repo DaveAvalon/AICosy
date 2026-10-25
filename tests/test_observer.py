@@ -5,13 +5,13 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from porn.service import GameService
-from porn.storage import encode
+from aicosy.service import GameService
+from aicosy.storage import encode
 
 
 class ObserverTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix="porn-observer-")
+        self.temp = tempfile.TemporaryDirectory(prefix="aicosy-observer-")
         self.path = str(Path(self.temp.name)/"test.sqlite3")
         self.now = 1000.
         self.service = GameService(self.path, clock=lambda: self.now)
@@ -59,7 +59,7 @@ class ObserverTests(unittest.TestCase):
         self.assertNotEqual(before, obs)
 
     def test_recorded_v1_game_still_replays_and_is_separate(self):
-        from porn import engine
+        from aicosy import engine
         fixture = json.loads((Path(__file__).parent/"fixtures/v1-golden.json").read_text())
         initial = fixture["initial_state"]
         def digest(value):
@@ -104,7 +104,7 @@ class ObserverTests(unittest.TestCase):
         self.assertEqual([entry["id"] for entry in inherited], ids[-6:])
 
     def test_research_debug_uses_stored_rules_version(self):
-        from porn.legacy_engine import create_state
+        from aicosy.legacy_engine import create_state
         state = create_state(session_id="legacy-research", player_id="legacy", model_id="old", mode="research")
         db = self.service.store.db
         db.execute("INSERT INTO players VALUES(?,?,?)", ("legacy", "old", 0))

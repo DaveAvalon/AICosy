@@ -3,9 +3,9 @@ from copy import deepcopy
 import json
 import unittest
 
-from porn.dynamics import initial_machine, simulate
-from porn.engine_v2 import available_actions, create_state, export_library, observe, transition
-from porn.errors import GameError
+from aicosy.dynamics import initial_machine, simulate
+from aicosy.engine_v2 import available_actions, create_state, export_library, observe, transition
+from aicosy.errors import GameError
 
 
 def new(**kwargs):

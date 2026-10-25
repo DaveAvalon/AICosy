@@ -5,9 +5,9 @@ import argparse
 import json
 import sys
 from adapters.cli import dispatch, fields, lines, strict_json
-from porn import __version__
-from porn.errors import GameError
-from porn.service import GameService
+from aicosy import __version__
+from aicosy.errors import GameError
+from aicosy.service import GameService
 
 SUPPORTED = ("2024-11-05", "2025-03-26")
 

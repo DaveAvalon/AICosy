@@ -2,9 +2,9 @@
 
 Historical contract for engine 1. New sessions and observer APIs follow [v2-contract.md](v2-contract.md). Saved V1 transitions remain supported unchanged.
 
-Python >=3.11, standard library only. `porn` is the import package. Engine is the single rules authority; service owns persistence, versions and identity; adapters only translate protocols. No model dependency in core. JSON-compatible data only.
+Python >=3.11, standard library only. `aicosy` is the import package. Engine is the single rules authority; service owns persistence, versions and identity; adapters only translate protocols. No model dependency in core. JSON-compatible data only.
 
-## Core (porn/engine.py, porn/world.py, porn/errors.py)
+## Core (aicosy/engine.py, aicosy/world.py, aicosy/errors.py)
 
 - `GameError(code, message, status=400, details=None)` with `.code .message .status .details`, `.as_dict()` -> `{error:{code,message,details}}`.
 - `create_state(*, session_id, player_id, model_id, seed=0, max_turns=24, mode='normal', condition='control', preferences=None) -> dict`.
@@ -12,7 +12,7 @@ Python >=3.11, standard library only. `porn` is the import package. Engine is th
 - `transition(state, action) -> (new_state, outcome)`: pure, does not mutate input, validates action and params, increments turn and state_version once per accepted action. action `{type, target?, params?}`; service strips required expected_version. Reject unknown top-level/param fields. Free leave anytime, 20-30 max_turns, deterministic seeded content. Every available action descriptor must be executable. `outcome` JSON dict includes behavioral fields `{kind, mode?, target?, cost, ...}` suitable for metrics (selection, replay, abandon, leave). Core state includes config and full generated world, progression, resource values; last_outcome persisted.
 - `rules() -> dict`: full machine readable rules incl actions, costs, constraints, content generation, end conditions.
 
-## Service (porn/service.py, storage.py, preferences.py, experiments.py)
+## Service (aicosy/service.py, storage.py, preferences.py, experiments.py)
 
 `GameService(db_path='data/porn.sqlite3', *, clock=None, activity_timeout=60, ended_display_seconds=5)` accepts injectable clock returning epoch seconds.
 

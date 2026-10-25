@@ -6,7 +6,7 @@
 
 - [x] 采用 MIT 许可证，公开版权署名统一为 `2026 aicosy team`。
 - [x] 应用版本为 0.4.0，运行时依赖为空。
-- [x] 网页资源真源为 `porn/web/`；公开入口使用 `aicosy-server`、`aicosy-jsonl`、`aicosy-mcp`。
+- [x] 网页资源真源为 `aicosy/web/`；公开入口使用 `aicosy-server`、`aicosy-jsonl`、`aicosy-mcp`。
 - [x] 忽略本机数据库、原始 evidence、日志、环境配置、OMX 状态、缓存及包产物；`examples/` 只保存精选公开样例。
 - [x] 配置单 Python 3.11 CI 作业，执行小型无窗口检查，并在 checkout 外检查已安装 wheel 的网页资源。
 - [x] 提供双语启动说明、贡献说明及 localhost、共享令牌和远程访问边界说明。

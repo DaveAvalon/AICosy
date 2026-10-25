@@ -18,10 +18,10 @@ import time
 from urllib.parse import parse_qs, unquote, urlsplit
 
 from .schemas import json_schema, openapi
-from porn.errors import GameError
+from aicosy.errors import GameError
 
 MAX_BODY_BYTES = 65536
-WEB_ROOT = Path(__file__).resolve().parent.parent / "porn" / "web"
+WEB_ROOT = Path(__file__).resolve().parent.parent / "aicosy" / "web"
 STATUS_HTML = WEB_ROOT / "status.html"
 
 
@@ -311,7 +311,7 @@ def make_server(service, host="127.0.0.1", port=8765, token=None, rate_limit=120
 
 
 def main(argv=None):
-    from porn.service import GameService
+    from aicosy.service import GameService
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)

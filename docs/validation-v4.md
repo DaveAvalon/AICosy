@@ -26,6 +26,16 @@ Wheel metadata uses `aicosy`, `aicosy team` and MIT. Its README, license and all
 
 The game flow was not repeated for this final naming update; the frozen engine and recording fixtures are unchanged. Earlier full-flow evidence is recorded below. Current remote CI, visible browser interaction and commercial model behavior are separate checks.
 
+## Python package path verification
+
+The runtime import package and source directory are now `aicosy`. The former `porn` package directory and shim module are absent. All adapters, test imports, scripts, source links and installed-resource lookups use the new path.
+
+After the move, 25 focused headless checks passed: V4 engine/service behavior, protocol and configuration handling, and the recorded V1/V2/V3 replay paths. Nine frozen engine/dynamics/world modules remain byte-identical to the preceding commit.
+
+A freshly built wheel was installed outside the checkout and exercised with `python -S` to exclude global and user site packages. `aicosy` imports and `GameService` resolved inside that installation, the old package could not be found, and all four resources loaded through `files("aicosy")`. The wheel contains no `porn/` directory or `porn.py`; 35 runtime/resource files match the current source. The HTTP observer, stdio adapters, 12-action rule script, replay and SQLite recovery after a service-process restart passed. Attribution remains exactly `aicosy team` and the whole-wheel identifier scan passed.
+
+The two temporary servers exited and about 3.41 MiB of temporary installation files were removed. The current wheel remains under ignored `dist/`; its compact report stays in ignored `evidence/publication/`. No visible window or commercial model was used. Existing databases retain their established file paths and stored formats.
+
 ## Earlier release verification
 
 The published GitHub commit was independently confirmed through the GitHub REST API. Its original wheel's 35 runtime/resource files were compared byte-for-byte with that commit, installed offline outside the checkout, and exercised through real HTTP and stdio. Its existing GitHub `python` check completed successfully. This verifies the downloaded code locally; GitHub itself does not host the running game.

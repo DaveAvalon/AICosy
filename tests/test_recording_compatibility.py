@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import unittest
 
-from porn import engine
+from aicosy import engine
 
 
 class RecordingCompatibilityTests(unittest.TestCase):

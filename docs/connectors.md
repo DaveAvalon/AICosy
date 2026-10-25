@@ -1,8 +1,8 @@
 # AICosy AI 接入
 
-所有适配器调用同一个 `GameService`，规则只由 `porn.engine` 执行。Python 3.11+，源码运行无需安装第三方包。在工程目录运行以下命令。取得源码及启动观察页的步骤见 [README](../README.zh-CN.md#先运行起来)。
+所有适配器调用同一个 `GameService`，规则只由 `aicosy.engine` 执行。Python 3.11+，源码运行无需安装第三方包。在工程目录运行以下命令。取得源码及启动观察页的步骤见 [README](../README.zh-CN.md#先运行起来)。
 
-对外项目名为 **AICosy**，安装后的命令是 `aicosy-server`、`aicosy-jsonl`、`aicosy-mcp`。配置使用 `AICOSY_*` 环境变量，运行时仍兼容旧 `AIRPORN_*`、`PORN_*` 变量。MCP 发布 `aicosy_*` 工具名，并接受旧 `airporn_*`、`porn_*` 调用别名。内部 Python 包 `porn` 和默认数据库文件名保留兼容，原有客户端与存档继续可用。
+对外项目名为 **AICosy**，安装后的命令是 `aicosy-server`、`aicosy-jsonl`、`aicosy-mcp`。配置使用 `AICOSY_*` 环境变量，运行时仍兼容旧 `AIRPORN_*`、`PORN_*` 变量。MCP 发布 `aicosy_*` 工具名，并接受旧 `airporn_*`、`porn_*` 调用别名。Python 包名为 `aicosy`。默认数据库仍为 `data/porn.sqlite3`，保留原路径以继续读取已有存档；不提供旧 `porn` 导入包。
 
 ## HTTP 示例玩家
 

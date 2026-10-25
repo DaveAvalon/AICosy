@@ -5,7 +5,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from porn.service import GameService
+from aicosy.service import GameService
 import unittest
 
 
@@ -48,7 +48,7 @@ class ProtocolTests(unittest.TestCase):
 
 
     def test_cli_and_mcp_actions_share_persistent_state(self):
-        with tempfile.TemporaryDirectory(prefix="porn-protocol-") as temporary:
+        with tempfile.TemporaryDirectory(prefix="aicosy-protocol-") as temporary:
             path = str(Path(temporary)/"shared.sqlite3")
             service = GameService(path)
             try:

@@ -1,9 +1,9 @@
 from copy import deepcopy
 import unittest
 
-from porn import engine_v4
-from porn.dynamics_v4 import advance, apply_control, initial_checkpoint, piece, remaining_activity
-from porn.errors import GameError
+from aicosy import engine_v4
+from aicosy.dynamics_v4 import advance, apply_control, initial_checkpoint, piece, remaining_activity
+from aicosy.errors import GameError
 
 
 class CheckpointDynamicsTests(unittest.TestCase):

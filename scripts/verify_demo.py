@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT))
 
 from adapters.http import make_server
 from clients.rule_agent import RulePlayer
-from porn.service import GameService
+from aicosy.service import GameService
 
 
 def write_json(path, value):
@@ -31,7 +31,7 @@ def write_json(path, value):
 
 @contextmanager
 def running(server):
-    thread = threading.Thread(target=server.serve_forever, daemon=True, name="porn-verification-http")
+    thread = threading.Thread(target=server.serve_forever, daemon=True, name="aicosy-verification-http")
     thread.start()
     try:
         yield f"http://127.0.0.1:{server.server_port}"
@@ -81,12 +81,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", default="evidence")
     args = parser.parse_args()
-    from porn.engine import DEFAULT_VERSION
+    from aicosy.engine import DEFAULT_VERSION
     if DEFAULT_VERSION != 1:
         parser.error("This V1 demo is archived. Use scripts/verify_v4.py; historical replay is covered by tests/fixtures.")
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="porn-verification-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="aicosy-verification-") as temporary:
         database = str(Path(temporary)/"demo.sqlite3")
         service = GameService(database)
         try:

@@ -29,7 +29,7 @@ V2 的助手实玩共 12 次行动，剩余 13 Energy 后主动结束。其决�
 
 因此，增加节点数量、延长数值表或让人类页面更炫，都不足以单独解决这轮问题。
 
-依据：`../evidence/v2/live-assistant/session.jsonl`（本机档案）、[当前动态规则](../porn/dynamics.py)、[当前行动规则](../porn/engine_v2.py)。
+依据：`../evidence/v2/live-assistant/session.jsonl`（本机档案）、[当前动态规则](../aicosy/dynamics.py)、[当前行动规则](../aicosy/engine_v2.py)。
 
 ## 第一件作品：双路回声
 
